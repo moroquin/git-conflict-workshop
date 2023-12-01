@@ -30,6 +30,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        "no-console": 2
+       // "no-console": 2
     }
 }
