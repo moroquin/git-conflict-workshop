@@ -5,6 +5,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
     ],
     "overrides": [
@@ -29,5 +30,6 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "no-console": 2
     }
 }
