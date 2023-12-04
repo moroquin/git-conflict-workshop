@@ -20,7 +20,8 @@ export function SumController(): OperationController{
         const result = operationData.number1 + operationData.number2;
         return{
             ...operationData,
-            result
+            result,
+            resultMessage: `SUM: ${operationData.number1}+${operationData.number2}=${result}`
         }
     }
 

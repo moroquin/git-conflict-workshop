@@ -24,7 +24,8 @@ export function ErrorController(): OperationController {
             number2: null,
             operationType: OperationType.ERROR,
             hasError: true,
-            result: null
+            result: null,
+            resultMessage: "ERROR"
         };
     }
 
