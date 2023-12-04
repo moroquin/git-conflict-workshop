@@ -7,7 +7,7 @@ import { SumController } from "./SumController";
 export function OperationControllerFactory(payload:Payload, operationType:OperationType):OperationController {
     switch (operationType) {
         case OperationType.SUM:
-            return SumController()
+            return SumController();
         default:
             return ErrorController();
     }

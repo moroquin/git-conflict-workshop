@@ -30,6 +30,10 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-       // "no-console": 2
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "@typescript-eslint/no-explicit-any": ["error", { "fixToUnknown": true }],
+        "curly": "error", 
+        "no-empty": "error"
     }
-}
+};

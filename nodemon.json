@@ -1,6 +1,15 @@
 {
-    "ignore": [".git", "node_modules", "dist"],
-    "watch": ["./src"], 
-    "exec": "npm start", 
-    "ext": "ts" 
+  "ignore": [
+    ".git",
+    "node_modules",
+    "dist"
+  ],
+  "watch": [
+    "./src"
+  ],
+  "exec": "npm start",
+  "ext": "ts",
+  "events": {
+    "restart": "npm run lint"
   }
+}

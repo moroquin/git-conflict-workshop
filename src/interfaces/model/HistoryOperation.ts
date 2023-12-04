@@ -1,6 +1,6 @@
 import { OperationType } from "./OperationType";
 
-export interface HistoryData{
+export interface HistoryOperation{
     operationType: OperationType, 
     error: boolean, 
     resultMessage: string

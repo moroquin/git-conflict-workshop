@@ -1,7 +1,7 @@
-import { HistoryData } from "../interfaces/model/HistoryData";
+import { HistoryOperation } from "../interfaces/model/HistoryOperation";
 import { ResultData } from "../interfaces/model/ResultData";
 
-const historyData:HistoryData[] = [];
+const historyData:HistoryOperation[] = [];
 
 export function pushResultData(resultData:ResultData):boolean{
     if (!resultData){
@@ -16,6 +16,6 @@ export function pushResultData(resultData:ResultData):boolean{
     return true;
 }
 
-export function getOperations():HistoryData[]{
+export function getOperations():HistoryOperation[]{
     return [...historyData];
 }
