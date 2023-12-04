@@ -23,3 +23,8 @@ You can use postman, and the payload format should be:
     "operation": "+"
 }
 ```
+
+## Endpoints 
+
+- http://localhost:3000/endpoint
+- http://localhost:3000/endpoints

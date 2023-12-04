@@ -5,7 +5,6 @@ package API{
     package interfaces{
         package controlleri{
             interface OperationController{
-                ():void
                 getOperationData(payload: Payload): OperationData
                 executeOperation(operationData: OperationData): ResultData
                 addOperationToHistoryCorrectly(resultData: ResultData):boolean
@@ -30,7 +29,7 @@ package API{
                 resultMessage: string
             }
 
-            interface HistoryData{
+            interface HistoryOperation{
                 operationType: OperationType
                 error: boolean
                 resultMessage: string
@@ -47,7 +46,10 @@ package API{
         }
     }
 
-    class app{}
+    class app{
+        + app.get("/operation")
+        + app.get("/operations")
+    }
 
     package controller{
         class OperationControllerFactory{
@@ -68,6 +70,7 @@ package API{
     package presenter{
         class OperationPresenter{
             + ExecuteOperation(payload: Payload)
+            + getAllOperations():GenaralResponseAllOperations
         }
     }
 
