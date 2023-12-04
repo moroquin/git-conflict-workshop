@@ -3,6 +3,7 @@ import { OperationData } from "../interfaces/model/OperationData";
 import { OperationType } from "../interfaces/model/OperationType";
 import { Payload } from "../interfaces/model/Payload";
 import { ResultData } from "../interfaces/model/ResultData";
+import { pushResultData } from "../model/OperationHistory";
 
 export function ErrorController(): OperationController {
     let errorController: OperationController;
@@ -30,8 +31,7 @@ export function ErrorController(): OperationController {
     }
 
     errorController.addOperationToHistoryCorrectly = (resultData: ResultData) => {
-        console.log(resultData);
-        return false;
+        return pushResultData(resultData);
     };
 
     return errorController;

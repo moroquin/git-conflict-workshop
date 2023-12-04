@@ -3,6 +3,7 @@ import { OperationData } from "../interfaces/model/OperationData";
 import { OperationType } from "../interfaces/model/OperationType";
 import { Payload } from "../interfaces/model/Payload";
 import { ResultData } from "../interfaces/model/ResultData";
+import { pushResultData } from "../model/OperationHistory";
 
 export function SumController(): OperationController{
     let sumController:OperationController;
@@ -25,9 +26,8 @@ export function SumController(): OperationController{
         }
     }
 
-    sumController.addOperationToHistoryCorrectly = (resultData: ResultData) => {
-        console.log(resultData);
-        return true;
+    sumController.addOperationToHistoryCorrectly = (resultData: ResultData):boolean => {
+        return pushResultData(resultData);
     };
 
     return sumController;

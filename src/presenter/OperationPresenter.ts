@@ -1,4 +1,4 @@
-import { OperationFactory } from "../controller/OperationFactory";
+import { OperationControllerFactory } from "../controller/OperationControllerFactory";
 import { OperationController } from "../interfaces/controller/OperationController";
 import { OperationData } from "../interfaces/model/OperationData";
 import { OperationType } from "../interfaces/model/OperationType";
@@ -7,7 +7,7 @@ import { ResultData } from "../interfaces/model/ResultData";
 
 
 export function ExecuteOperation(payload: Payload){
-    const operationController:OperationController = OperationFactory(payload,getOperationType(payload));
+    const operationController:OperationController = OperationControllerFactory(payload,getOperationType(payload));
     const operationData:OperationData = operationController.getOperationData(payload);
     const operationResult: ResultData = operationController.executeOperation(operationData);
 

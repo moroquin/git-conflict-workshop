@@ -4,7 +4,7 @@ import { Payload } from "../interfaces/model/Payload";
 import { ErrorController } from "./ErrorController";
 import { SumController } from "./SumController";
 
-export function OperationFactory(payload:Payload, operationType:OperationType):OperationController {
+export function OperationControllerFactory(payload:Payload, operationType:OperationType):OperationController {
     switch (operationType) {
         case OperationType.SUM:
             return SumController()
