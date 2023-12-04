@@ -1,0 +1,85 @@
+@startuml MainDiagram
+
+package API{
+
+    package interfaces{
+        package controlleri{
+            interface OperationController{
+                ():void
+                getOperationData(payload: Payload): OperationData
+                executeOperation(operationData: OperationData): ResultData
+                addOperationToHistoryCorrectly(resultData: ResultData):boolean
+            }
+        }
+
+        package modeli{
+            enum OperationType{
+                + ErrorControler
+                + SUM
+            }
+
+            interface OperationData{
+                number1: number 
+                number2: number
+                operationType: OperationType
+                hasError: boolean
+            }
+
+            interface ResultData {
+                result: number
+                resultMessage: string
+            }
+
+            interface HistoryData{
+                operationType: OperationType
+                error: boolean
+                resultMessage: string
+            }
+
+            interface Payload{
+                number1: number 
+                number2: number
+                operation: string
+            }
+
+            ResultData -up-|> OperationData
+
+        }
+    }
+
+    class app{}
+
+    package controller{
+        class OperationControllerFactory{
+            + OperationControllerFactory(Payload, OperationType):OperationController
+        }
+        class ErrorControler{}
+        class SumController{}
+    }
+
+    package model{
+        class OperationHistory{
+            + pushResultData(resultData:ResultData):boolean
+            + getOperations():HistoryData[]
+        }
+
+    }
+
+    package presenter{
+        class OperationPresenter{
+            + ExecuteOperation(payload: Payload)
+        }
+    }
+
+    app ..> OperationPresenter
+
+    OperationPresenter ..> OperationControllerFactory
+    OperationControllerFactory ..> SumController
+    OperationControllerFactory ..> ErrorControler
+
+    ErrorControler ..> OperationHistory
+    SumController ..> OperationHistory
+}
+
+
+@enduml
